@@ -26,16 +26,20 @@ public  class landingPage {
 	
 	public void Goto()
 	{
-		driver.get("http://10.76.41.148/WEB%20APP/index.html");
+		driver.get("http://10.76.41.148/WEB APP/index.html");
 	}
 	
-	public void LoginApplication(String email,String password)
+	public MapGeneratePage LoginApplication(String email,String password)
 	{
 		username.sendKeys(email);
 		psw.sendKeys(password);
 		loginBtn.click();
+		MapGeneratePage mg=new MapGeneratePage(driver);
+		return mg;
 		
 	}
+	
+	
 	
 	
 }

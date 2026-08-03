@@ -5,9 +5,8 @@
     <classes>
       <class name="selenium.Tests.CreatMapFile">
         <methods>
-          <include name="loginapplication" invocation-numbers="0"/>
           <include name="LaunchApplication"/>
-          <include name="teradown"/>
+          <include name="CreateNode" invocation-numbers="0"/>
         </methods>
       </class> <!-- selenium.Tests.CreatMapFile -->
     </classes>
