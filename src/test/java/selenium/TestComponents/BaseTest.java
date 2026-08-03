@@ -24,6 +24,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import sivamani.PageObjectModel.MapGeneratePage;
 import sivamani.PageObjectModel.landingPage;
 
 public class BaseTest {
@@ -91,7 +92,15 @@ public class BaseTest {
 		return lp;
 		
 	}
-	@AfterMethod(alwaysRun = true)
+	
+//	public MapGeneratePage CreatingNode()
+//	{
+//		MapGeneratePage mg=new MapGeneratePage(driver);
+//		mg.createNode();
+//		return mg;
+//	}
+	
+	//@AfterMethod(alwaysRun = true)
 	public void teradown()
 	{
 		driver.quit();
