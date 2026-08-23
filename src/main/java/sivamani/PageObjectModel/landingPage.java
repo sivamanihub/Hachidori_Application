@@ -5,12 +5,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public  class landingPage {
+import AbstractC.AbstracComponents;
+
+public  class landingPage extends AbstracComponents {
 
 	WebDriver driver;
+	String ipaddress = "10.97.90.148";
 	
 	public landingPage(WebDriver driver)
 	{
+		super(driver);
 		this.driver=driver;
 		PageFactory.initElements(driver,this);
 	}
@@ -26,7 +30,7 @@ public  class landingPage {
 	
 	public void Goto()
 	{
-		driver.get("http://10.76.41.148/WEB APP/index.html");
+		driver.get("http://"+ipaddress+"/WEB APP/index.html");
 	}
 	
 	public MapGeneratePage LoginApplication(String email,String password)
