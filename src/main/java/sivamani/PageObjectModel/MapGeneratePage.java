@@ -13,8 +13,9 @@ public class MapGeneratePage extends AbstracComponents {
 
 	
 	
-   public WebDriver driver;
+    WebDriver driver;
 	public Actions actions;
+	
 	public MapGeneratePage(WebDriver driver)
 	{
 		super(driver);
@@ -40,23 +41,67 @@ public class MapGeneratePage extends AbstracComponents {
 	@FindBy(xpath = "(//button[contains(@class,'MuiButtonBase-root')])[21]")
 	WebElement addPathBtn;
 	
+	@FindBy(xpath="(//input[@type='checkbox'])[4]")
+	WebElement specialButEnab;
+	
+	@FindBy(xpath="(//input[@type='checkbox'])[4]")
+	WebElement Bidirection;
+	
+	@FindBy(xpath="(//button[@type='button'])[15]")
+	WebElement updateBtn;
+	
+	@FindBy(xpath="(//button[@type='button'])[10]")
+	WebElement upload;
+	
+	@FindBy(xpath="//div[contains(@class,'MuiAlert-message')]")
+	WebElement mapcreatedMsg;
+	
+	@FindBy(xpath = "(//button[@type='button'])[3]")
+	WebElement deletingmap;
+	
+	@FindBy(xpath = "(//button[@type='button'])[11]")
+	WebElement popupYesBtn;
+	
+	@FindBy(xpath="//div[contains(@class,'MuiAlert-message')]")
+	WebElement mapDeletedMsg;
+
+	
 	By msgOpenMapGen=By.cssSelector(".MuiAlert-message");
+	By mapcreMsg=By.xpath("//div[contains(@class,'MuiAlert-message')]");
+	By deletBtn=By.xpath("(//button[@type='button'])[3]");
 	
 	
-	
-	public void createNode() throws InterruptedException {
+	public String createMap() throws InterruptedException {
 		actions = new Actions(driver);
-		waitForElementToAppear(msgOpenMapGen);
+		//waitForElementToAppear(msgOpenMapGen);
 		MapGenerateIcon.click();
 		creatMapBtn.click();
 		NodeIcon.click();
 		
 	actions.moveToElement(PageCanvas, 100, 180).click().perform();
 	actions.moveToElement(PageCanvas, 150, 180).click().perform();
+	actions.moveToElement(PageCanvas, 150, 180).click().perform();
+	specialButEnab.click();
+	updateBtn.click();
 	pathIcon.click();
 	actions.moveToElement(PageCanvas, 100, 180).click().perform();
 	actions.moveToElement(PageCanvas, 150, 180).click().perform();
+	Bidirection.click();
     addPathBtn.click();
+    upload.click();
+    waitForElementToAppear(mapcreMsg);
+    
+    return  mapcreatedMsg.getText();
+	
+	}
+	
+	public String deletMap() throws InterruptedException
+	{
+		MapGenerateIcon.click();
+		//waitForElementToAppear(deletBtn);
+		deletingmap.click();
+		popupYesBtn.click();
+		return mapDeletedMsg.getText();
 	
 	}
 	

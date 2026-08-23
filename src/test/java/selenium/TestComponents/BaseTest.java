@@ -11,6 +11,8 @@ import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -93,17 +95,28 @@ public class BaseTest {
 		
 	}
 	
-//	public MapGeneratePage CreatingNode()
-//	{
-//		MapGeneratePage mg=new MapGeneratePage(driver);
-//		mg.createNode();
-//		return mg;
-//	}
+
 	
-	//@AfterMethod(alwaysRun = true)
+	@AfterMethod(alwaysRun = true)
 	public void teradown()
 	{
 		driver.quit();
 	}
+	@DataProvider
+	public Object[] [] getData() throws IOException
+	{
+		List<HashMap<String, String>> data= getJsonDatatoMap(System.getProperty("user.dir")+"\\src\\test\\java\\selenium\\DataDriven\\Credential.json");
+		return new Object[][] {{data.get(0)}};
+	}
 	
+	public String getScreenshot(String testCaseName, WebDriver driver) throws IOException
+	{
+		TakesScreenshot ts=(TakesScreenshot)driver;
+		File source=ts.getScreenshotAs(OutputType.FILE);
+		File file=new File(System.getProperty("user.dir")+"//reports//"+testCaseName+".png");
+		FileUtils.copyFile(source, file);
+		
+		return System.getProperty("user.dir")+"//reports//"+testCaseName+".png";
+		
+	}
 }
