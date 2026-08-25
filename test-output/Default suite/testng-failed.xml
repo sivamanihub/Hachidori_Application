@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="selenium.Tests.SettingsTestCases">
+      <class name="selenium.Test.ConfigAMRTests">
         <methods>
+          <include name="LoingToConfigAMR" invocation-numbers="0"/>
           <include name="LaunchApplication"/>
           <include name="teradown"/>
-          <include name="SavingIpadress"/>
         </methods>
-      </class> <!-- selenium.Tests.SettingsTestCases -->
+      </class> <!-- selenium.Test.ConfigAMRTests -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

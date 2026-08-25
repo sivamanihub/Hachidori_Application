@@ -74,13 +74,13 @@ public class BaseTest {
 	    return driver;
 	}
 	
-	public List<HashMap<String,String>> getJsonDatatoMap(String string) throws IOException
+	public List<HashMap<String, Object>> getJsonDatatoMap(String string) throws IOException
 	{
 	
 		String jsonContent=FileUtils.readFileToString(new File(System.getProperty("user.dir")+"\\src\\test\\java\\selenium\\DataDriven\\Credential.json"),
 				StandardCharsets.UTF_8 );
 		ObjectMapper mapper=new ObjectMapper();
-		List<HashMap<String, String>> data=mapper.readValue(jsonContent, new TypeReference<List<HashMap<String,String>>>() {
+		List<HashMap<String, Object>> data=mapper.readValue(jsonContent, new TypeReference<List<HashMap<String,Object>>>() {
 		});
 				
 		return data;
@@ -105,9 +105,15 @@ public class BaseTest {
 	@DataProvider
 	public Object[] [] getData() throws IOException
 	{
-		List<HashMap<String, String>> data= getJsonDatatoMap(System.getProperty("user.dir")+"\\src\\test\\java\\selenium\\DataDriven\\Credential.json");
+		List<HashMap<String, Object>> data= getJsonDatatoMap(System.getProperty("user.dir")+"\\src\\test\\java\\selenium\\DataDriven\\Credential.json");
 		return new Object[][] {{data.get(0)}};
 	}
+//	@DataProvider
+//	public Object[] [] getRoleCrediantial() throws IOException
+//	{
+//		List<HashMap<String, String>> data1=getJsonDatatoMap(System.getProperty("user.dir")+"\\src\\test\\java\\selenium\\DataDriven\\LoginCredentialBasedOnRoles.json");
+//		return new Object[][] {{data1.get(0)}};
+//	}
 	
 	public String getScreenshot(String testCaseName, WebDriver driver) throws IOException
 	{

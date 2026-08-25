@@ -10,8 +10,8 @@ import sivamani.AbstractC.AbstracComponents;
 public  class landingPage extends AbstracComponents {
 
 	WebDriver driver;
-	String ipaddress = "10.97.90.148";
-	
+	//String ipaddress = "http://10.97.90.148";
+	String ipaddress = "https://192.168.68.197";
 	public landingPage(WebDriver driver)
 	{
 		super(driver);
@@ -30,7 +30,7 @@ public  class landingPage extends AbstracComponents {
 	
 	public void Goto()
 	{
-		driver.get("http://"+ipaddress+"/WEB APP/index.html");
+		driver.get(ipaddress+"/WEB APP/index.html");
 	}
 	
 	public MapGeneratePage LoginApplication(String email,String password)
