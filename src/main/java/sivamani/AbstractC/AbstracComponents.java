@@ -12,6 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import sivamani.PageObjectModel.ConfigAMR;
 import sivamani.PageObjectModel.Settings;
 
 public class AbstracComponents {
@@ -67,6 +68,11 @@ public class AbstracComponents {
 	    wait.until(ExpectedConditions.urlContains("#/layout"));
 	   Settings st=new Settings(driver);
 	   return st;
+   }
+   public ConfigAMR gotoConfigAMR()
+   {
+	   ConfigAMR ca = new ConfigAMR(driver);
+	   return ca;
    }
 
 

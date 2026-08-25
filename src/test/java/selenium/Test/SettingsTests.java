@@ -10,7 +10,7 @@ import sivamani.PageObjectModel.MapGeneratePage;
 import sivamani.PageObjectModel.Settings;
 import sivamani.PageObjectModel.landingPage;
 
-public class SettingsTestCases extends BaseTest{
+public class SettingsTests extends BaseTest{
 
 	@Test(dataProvider = "getData")
 	public void SavingIpadress(HashMap<String, String> input) throws InterruptedException

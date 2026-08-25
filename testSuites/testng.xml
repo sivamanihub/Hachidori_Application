@@ -6,7 +6,7 @@
 </listeners>
   <test thread-count="5" name="ipAdressset">
     <classes>
-      <class name="selenium.Test.SettingsTestCases"/>
+      <class name="selenium.Test.SettingsTests"/>
     </classes>
   </test> <!-- Test -->
   
